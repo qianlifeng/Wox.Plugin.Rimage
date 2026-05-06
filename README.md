@@ -2,7 +2,7 @@
 
 Compress selected images in Wox with the bundled [rimage](https://github.com/vlad-salone/rimage) CLI.
 
-![Screenshot](./screenshot.png)
+![Screenshot](./screenshot2.gif)
 
 ## Usage
 
