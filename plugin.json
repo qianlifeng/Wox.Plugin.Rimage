@@ -1,20 +1,346 @@
 {
-  "Id": "{{.Id}}",
+  "Id": "ea521bb8-4414-44be-bf42-4b2851ae32ad",
   "TriggerKeywords": [
-    "{{.TriggerKeyword}}"
+    "ri"
   ],
-  "Name": "{{.Name}}",
-  "Description": "{{.Description}}",
-  "Author": "{{.Author}}",
-  "Version": "0.0.4",
+  "Name": "i18n:plugin_name",
+  "Description": "i18n:plugin_description",
+  "Author": "qianlifeng",
+  "Version": "0.0.1",
   "MinWoxVersion": "2.0.0",
   "Runtime": "nodejs",
-  "Website": "{{.Website}}",
+  "Website": "https://github.com/qianlifeng/Wox.Plugin.Rimage",
   "Entry": "index.js",
   "Icon": "relative:images/app.svg",
   "SupportedOS": [
     "windows",
     "linux",
     "darwin"
-  ]
+  ],
+  "Features": [
+    {
+      "Name": "querySelection"
+    }
+  ],
+  "SettingDefinitions": [
+    {
+      "Type": "head",
+      "Value": {
+        "Content": "i18n:settings_common",
+        "Tooltip": ""
+      }
+    },
+    {
+      "Type": "checkbox",
+      "Value": {
+        "Key": "replace_original",
+        "Label": "i18n:setting_replace_original",
+        "DefaultValue": "true",
+        "Tooltip": "i18n:setting_replace_original_tooltip"
+      }
+    },
+    {
+      "Type": "checkbox",
+      "Value": {
+        "Key": "strip_metadata",
+        "Label": "i18n:setting_strip_metadata",
+        "DefaultValue": "false",
+        "Tooltip": "i18n:setting_strip_metadata_tooltip"
+      }
+    },
+    {
+      "Type": "textbox",
+      "Value": {
+        "Key": "threads",
+        "Label": "i18n:setting_threads",
+        "DefaultValue": "",
+        "Tooltip": "i18n:setting_threads_tooltip",
+        "MaxLines": 1,
+        "Validators": []
+      }
+    },
+    {
+      "Type": "textbox",
+      "Value": {
+        "Key": "resize",
+        "Label": "i18n:setting_resize",
+        "DefaultValue": "",
+        "Tooltip": "i18n:setting_resize_tooltip",
+        "MaxLines": 1,
+        "Validators": []
+      }
+    },
+    {
+      "Type": "select",
+      "Value": {
+        "Key": "resize_policy",
+        "Label": "i18n:setting_resize_policy",
+        "DefaultValue": "default",
+        "Tooltip": "i18n:setting_resize_policy_tooltip",
+        "IsMulti": false,
+        "Options": [
+          {
+            "Label": "i18n:resize_policy_default",
+            "Value": "default"
+          },
+          {
+            "Label": "i18n:resize_policy_downscale",
+            "Value": "downscale"
+          },
+          {
+            "Label": "i18n:resize_policy_upscale",
+            "Value": "upscale"
+          }
+        ],
+        "Validators": []
+      }
+    },
+    {
+      "Type": "head",
+      "Value": {
+        "Content": "i18n:settings_quality",
+        "Tooltip": ""
+      }
+    },
+    {
+      "Type": "textbox",
+      "Value": {
+        "Key": "jpeg_quality",
+        "Label": "i18n:setting_jpeg_quality",
+        "DefaultValue": "75",
+        "Tooltip": "i18n:setting_jpeg_quality_tooltip",
+        "MaxLines": 1,
+        "Suffix": "0-100",
+        "Validators": [
+          {
+            "Type": "is_number",
+            "Value": {
+              "IsInteger": true,
+              "IsFloat": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Type": "textbox",
+      "Value": {
+        "Key": "png_effort",
+        "Label": "i18n:setting_png_effort",
+        "DefaultValue": "2",
+        "Tooltip": "i18n:setting_png_effort_tooltip",
+        "MaxLines": 1,
+        "Suffix": "0-6",
+        "Validators": [
+          {
+            "Type": "is_number",
+            "Value": {
+              "IsInteger": true,
+              "IsFloat": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Type": "checkbox",
+      "Value": {
+        "Key": "png_interlace",
+        "Label": "i18n:setting_png_interlace",
+        "DefaultValue": "false",
+        "Tooltip": "i18n:setting_png_interlace_tooltip"
+      }
+    },
+    {
+      "Type": "textbox",
+      "Value": {
+        "Key": "webp_quality",
+        "Label": "i18n:setting_webp_quality",
+        "DefaultValue": "75",
+        "Tooltip": "i18n:setting_webp_quality_tooltip",
+        "MaxLines": 1,
+        "Suffix": "0-100",
+        "Validators": [
+          {
+            "Type": "is_number",
+            "Value": {
+              "IsInteger": true,
+              "IsFloat": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Type": "checkbox",
+      "Value": {
+        "Key": "webp_lossless",
+        "Label": "i18n:setting_webp_lossless",
+        "DefaultValue": "false",
+        "Tooltip": "i18n:setting_webp_lossless_tooltip"
+      }
+    },
+    {
+      "Type": "textbox",
+      "Value": {
+        "Key": "avif_quality",
+        "Label": "i18n:setting_avif_quality",
+        "DefaultValue": "50",
+        "Tooltip": "i18n:setting_avif_quality_tooltip",
+        "MaxLines": 1,
+        "Suffix": "0-100",
+        "Validators": [
+          {
+            "Type": "is_number",
+            "Value": {
+              "IsInteger": true,
+              "IsFloat": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Type": "textbox",
+      "Value": {
+        "Key": "avif_speed",
+        "Label": "i18n:setting_avif_speed",
+        "DefaultValue": "6",
+        "Tooltip": "i18n:setting_avif_speed_tooltip",
+        "MaxLines": 1,
+        "Suffix": "1-10",
+        "Validators": [
+          {
+            "Type": "is_number",
+            "Value": {
+              "IsInteger": true,
+              "IsFloat": false
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "I18n": {
+    "en_US": {
+      "plugin_name": "RImage",
+      "plugin_description": "Compress selected images with rimage",
+      "select_images_title": "Select image files",
+      "select_images_subtitle": "RImage only supports batch compression for selected image files",
+      "no_supported_images_title": "No compressible images found",
+      "supported_formats_subtitle": "Supports JPEG, PNG, WebP, and AVIF files",
+      "unsupported_files_notice": "Skips {count} unsupported files",
+      "preview_compress_mode": "Mode",
+      "preview_compress_mode_tooltip_label": "Tip",
+      "preview_in_place_compress": "In-place compression",
+      "preview_in_place_compress_tooltip": "Compressed images overwrite the originals",
+      "preview_non_in_place_compress": "Non-in-place compression",
+      "preview_non_in_place_compress_tooltip": "Compressed images appear in the same directory",
+      "preview_file_count": "Files",
+      "preview_file_count_value": "{count} files",
+      "preview_total_size": "Size",
+      "preview_total_size_value": "Total {size}",
+      "compress_images_title": "Compress {count} images",
+      "compress_action": "Compress images",
+      "no_compressible_images_notify": "No compressible images",
+      "missing_binary_notify": "Missing rimage binary for the current platform: {path}",
+      "unsupported_platform": "Unsupported platform: {platform}/{arch}. Only Windows x64, Linux x64, and macOS arm64/x64 are supported",
+      "toolbar_compressing": "Compressing {count} images",
+      "toolbar_codec": "Compressing {count} images with {codec}",
+      "toolbar_file_done": "Completed {completed}/{total} images",
+      "toolbar_group_done": "Completed {completed}/{total} compression groups",
+      "compress_done_with_saved": "Compression complete, saved {bytes}",
+      "compress_done": "Compression complete",
+      "compress_failed": "Compression failed: {error}",
+      "settings_common": "Common",
+      "settings_quality": "Quality",
+      "setting_replace_original": "Replace originals",
+      "setting_replace_original_tooltip": "Overwrite selected files. Disable this to write compress_* files next to originals",
+      "setting_strip_metadata": "Strip metadata",
+      "setting_strip_metadata_tooltip": "Remove metadata when the selected codec supports it",
+      "setting_threads": "Threads",
+      "setting_threads_tooltip": "Leave empty to let rimage choose automatically",
+      "setting_resize": "Resize",
+      "setting_resize_tooltip": "Optional rimage resize expression, such as 50%, 1000w, or 800x600",
+      "setting_resize_policy": "Resize policy",
+      "setting_resize_policy_tooltip": "Choose whether resize may downscale, upscale, or use rimage defaults",
+      "resize_policy_default": "Default",
+      "resize_policy_downscale": "Downscale only",
+      "resize_policy_upscale": "Upscale only",
+      "setting_jpeg_quality": "JPEG quality",
+      "setting_jpeg_quality_tooltip": "Quality for mozjpeg. 60-80 is recommended",
+      "setting_png_effort": "PNG effort",
+      "setting_png_effort_tooltip": "Optimization effort for oxipng. Higher is slower and smaller",
+      "setting_png_interlace": "PNG interlace",
+      "setting_png_interlace_tooltip": "Create progressive PNG output",
+      "setting_webp_quality": "WebP quality",
+      "setting_webp_quality_tooltip": "Quality for lossy WebP output",
+      "setting_webp_lossless": "WebP lossless",
+      "setting_webp_lossless_tooltip": "Encode WebP without quality loss",
+      "setting_avif_quality": "AVIF quality",
+      "setting_avif_quality_tooltip": "Quality for AVIF output",
+      "setting_avif_speed": "AVIF speed",
+      "setting_avif_speed_tooltip": "1 is smallest and slowest; 10 is fastest and larger"
+    },
+    "zh_CN": {
+      "plugin_name": "RImage",
+      "plugin_description": "使用 rimage 压缩选中的图片",
+      "select_images_title": "请选择图片文件",
+      "select_images_subtitle": "RImage 仅支持对选中的图片文件进行批量压缩",
+      "no_supported_images_title": "未找到可压缩的图片",
+      "supported_formats_subtitle": "支持 JPEG、PNG、WebP 和 AVIF 文件",
+      "unsupported_files_notice": "跳过 {count} 个不支持的文件",
+      "preview_compress_mode": "压缩方式",
+      "preview_compress_mode_tooltip_label": "说明",
+      "preview_in_place_compress": "原地压缩",
+      "preview_in_place_compress_tooltip": "压缩后的图片会覆盖原图",
+      "preview_non_in_place_compress": "非原地压缩",
+      "preview_non_in_place_compress_tooltip": "压缩后的照片会出现在同目录",
+      "preview_file_count": "文件",
+      "preview_file_count_value": "{count} 文件",
+      "preview_total_size": "大小",
+      "preview_total_size_value": "共 {size}",
+      "compress_images_title": "压缩 {count} 张图片",
+      "compress_action": "压缩图片",
+      "no_compressible_images_notify": "没有可压缩的图片",
+      "missing_binary_notify": "当前平台缺少 rimage 二进制：{path}",
+      "unsupported_platform": "不支持的平台：{platform}/{arch}，仅支持 Windows x64、Linux x64、macOS arm64/x64",
+      "toolbar_compressing": "正在压缩 {count} 张图片",
+      "toolbar_codec": "正在使用 {codec} 压缩 {count} 张图片",
+      "toolbar_file_done": "已完成 {completed}/{total} 张图片",
+      "toolbar_group_done": "已完成 {completed}/{total} 组压缩",
+      "compress_done_with_saved": "压缩完成，节省 {bytes}",
+      "compress_done": "压缩完成",
+      "compress_failed": "压缩失败：{error}",
+      "settings_common": "通用",
+      "settings_quality": "质量",
+      "setting_replace_original": "原地替换",
+      "setting_replace_original_tooltip": "覆盖选中的原文件。关闭后会在同目录生成 compress_* 文件",
+      "setting_strip_metadata": "移除元数据",
+      "setting_strip_metadata_tooltip": "在当前编码器支持时移除图片元数据",
+      "setting_threads": "线程数",
+      "setting_threads_tooltip": "留空表示让 rimage 自动选择",
+      "setting_resize": "调整尺寸",
+      "setting_resize_tooltip": "可选 rimage resize 表达式，例如 50%、1000w 或 800x600",
+      "setting_resize_policy": "尺寸策略",
+      "setting_resize_policy_tooltip": "选择 resize 是否只允许缩小、只允许放大，或使用 rimage 默认行为",
+      "resize_policy_default": "默认",
+      "resize_policy_downscale": "仅缩小",
+      "resize_policy_upscale": "仅放大",
+      "setting_jpeg_quality": "JPEG 质量",
+      "setting_jpeg_quality_tooltip": "mozjpeg 的输出质量，推荐 60-80",
+      "setting_png_effort": "PNG 压缩强度",
+      "setting_png_effort_tooltip": "oxipng 的优化强度，越高越慢但通常更小",
+      "setting_png_interlace": "PNG 交错",
+      "setting_png_interlace_tooltip": "输出渐进式 PNG",
+      "setting_webp_quality": "WebP 质量",
+      "setting_webp_quality_tooltip": "有损 WebP 的输出质量",
+      "setting_webp_lossless": "WebP 无损",
+      "setting_webp_lossless_tooltip": "以无质量损失方式编码 WebP",
+      "setting_avif_quality": "AVIF 质量",
+      "setting_avif_quality_tooltip": "AVIF 的输出质量",
+      "setting_avif_speed": "AVIF 速度",
+      "setting_avif_speed_tooltip": "1 最小最慢，10 最快但文件更大"
+    }
+  }
 }
