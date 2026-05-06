@@ -1,8 +1,6 @@
 {
   "Id": "ea521bb8-4414-44be-bf42-4b2851ae32ad",
-  "TriggerKeywords": [
-    "ri"
-  ],
+  "TriggerKeywords": ["ri"],
   "Name": "i18n:plugin_name",
   "Description": "i18n:plugin_description",
   "Author": "qianlifeng",
@@ -12,11 +10,7 @@
   "Website": "https://github.com/qianlifeng/Wox.Plugin.Rimage",
   "Entry": "index.js",
   "Icon": "relative:images/app.svg",
-  "SupportedOS": [
-    "windows",
-    "linux",
-    "darwin"
-  ],
+  "SupportedOS": ["windows", "linux", "darwin"],
   "Features": [
     {
       "Name": "querySelection"
